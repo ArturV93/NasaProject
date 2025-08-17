@@ -13,8 +13,7 @@ export class MarsRoverService {
 
     public async getMarsRovers(): Promise<IRoversResponse>{
         try {
-            const response: IRoversResponse = await this.httpClient.get(this.baseUrl, { params: { api_key: NASA_API_KEY }})      
-            console.log(response);
+            const response: IRoversResponse = await this.httpClient.get(this.baseUrl, { params: { api_key: NASA_API_KEY }}); 
             return response;
         } catch (error) {
             logger.error('getMarsPhotos: ', error);
@@ -24,9 +23,7 @@ export class MarsRoverService {
 
     public async getMarsPhotos(roverName: string, query: Record<string,any>): Promise<IMarsRoverPhotosResponse[]>{
         try {
-            const response = await this.httpClient.get(`${this.baseUrl}/${roverName}/photos`, { params: { ...query, api_key: NASA_API_KEY }})      
-            // await new Promise(resolve => setTimeout(resolve, 5000));
-            console.log(JSON.stringify(response));
+            const response = await this.httpClient.get(`${this.baseUrl}/${roverName}/photos`, { params: { ...query, api_key: NASA_API_KEY }});
             return response['photos'];
         } catch (error) {
             logger.error('getMarsPhotos: ', error);

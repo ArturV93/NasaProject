@@ -10,7 +10,6 @@ export class MarsRoverController {
 
   public getMarsRovers = asyncHandler(async(req: Request, res: Response, next: NextFunction): Promise<void> => {
       const rovers: IRoversResponse = await this.marsRoverService.getMarsRovers();
-      console.log(this.getMarsRovers);
       res.status(200).json({ data: rovers, message: 'Mars Rovers retrieved successfully' });
   });
 

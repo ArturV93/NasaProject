@@ -19,7 +19,6 @@ export const CustomeAlert = ({
   icon: Icon = Terminal,
   action
 }: CustomeAlertAlertProps) => {
-    console.log(description);
   return (
     <Alert variant={variant}>
       <Icon className="h-4 w-4" />

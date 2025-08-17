@@ -8,14 +8,16 @@ export const useMarsStore = create<IMarsState>((set, get) => ({
     loading: false,
     error: null,
     page: 1,
-    hasMore: true,
+    hasMore: false,
     fetchRovers: async (query: IMarsRoverPhotosQuery) => {
         set({ loading: true, error: null });
         try {
             const data = await getMarsPhotos(query);
-            set({ photos: data, loading: false, hasMore: data.length > 0 });
+            console.log('data ', data);
+            set({ photos: data, loading: false, hasMore: data.length > 24 });
         } catch (err: any) {
-            set({ error: err.response.data.message || "Failed to fetch rovers", loading: false });
+            console.log(err);
+            set({ error: err.response?.data?.message || "Failed to fetch rovers", loading: false });
         }
     },
     fetchNextPage: async (query: IMarsRoverPhotosQuery) => {
@@ -26,12 +28,12 @@ export const useMarsStore = create<IMarsState>((set, get) => ({
         try {
             const nextPage = page + 1;
             const data = await getMarsPhotos({ ...query, page: nextPage });
-
+            
             set({
                 photos: [...photos, ...data],
                 loading: false,
                 page: nextPage,
-                hasMore: data.length < 25, // If no data returned, no more pages
+                hasMore: data.length > 24, // If no data returned, no more pages
             });
         } catch (err: any) {
             set({ error: err.response?.data?.message || "Failed to fetch rovers", loading: false });

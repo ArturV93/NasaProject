@@ -74,7 +74,6 @@ describe('TEST Mars Rover API', () => {
   describe('[GET] /rovers', () => {
     it('should return a list of rovers', async () => {
       const response = await request(app.getServer()).get(`${route.path}/rovers`);
-      console.log(response);
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
         data: mockRovers,

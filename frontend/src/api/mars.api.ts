@@ -7,7 +7,6 @@ export const getMarsPhotos = async(roverQuery: IMarsRoverPhotosQuery): Promise<I
     if(roverQuery.sol && roverQuery.sol !== undefined) url = url.concat(`&sol=${roverQuery.sol}`);
     if(roverQuery.earth_date) url = url.concat(`&earth_date=${roverQuery.earth_date}`);
     const response = await axiosClient.get<{data: IMarsRoverPhoto[]}>(url);
-    console.log(response);
     return response.data.data;
 }
 

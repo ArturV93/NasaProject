@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useMarsStore } from "../store/marsRovers";
 import { CustomeAlert } from "@/components/customeAlret";
 import { PageContainer } from "@/components/pageContainer";
-import { Skeleton } from "@/components/ui/skeleton";
 import { NumberInput } from "@/components/numberInput";
 import { IMarsRoverPhotosQuery, TRoverName } from "@/types/mars.interfaces";
 import { DateFilter } from "@/components/dateFilter";

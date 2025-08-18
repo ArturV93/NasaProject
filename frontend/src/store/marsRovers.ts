@@ -13,10 +13,8 @@ export const useMarsStore = create<IMarsState>((set, get) => ({
         set({ loading: true, error: null });
         try {
             const data = await getMarsPhotos(query);
-            console.log('data ', data);
             set({ photos: data, loading: false, hasMore: data.length > 24 });
         } catch (err: any) {
-            console.log(err);
             set({ error: err.response?.data?.message || "Failed to fetch rovers", loading: false });
         }
     },

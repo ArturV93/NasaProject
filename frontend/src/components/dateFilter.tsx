@@ -1,4 +1,4 @@
-import { ChevronDownIcon, X } from "lucide-react";
+import { ChevronDownIcon} from "lucide-react";
 import { Label } from "./ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import React from "react";

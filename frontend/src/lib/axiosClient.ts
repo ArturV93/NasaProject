@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 
 // Create a singleton Axios instance
 const axiosClient: AxiosInstance = axios.create({
-  baseURL: import.meta.env["API_BASE_URL"] || "http://localhost:3000",
+  baseURL: import.meta.env["API_BASE_URL"] || "http://localhost:3030",
   headers: {
     "Content-Type": "application/json",
   },

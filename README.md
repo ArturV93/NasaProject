@@ -56,5 +56,11 @@ To run the whole project using Docker:
     docker compose up
 ```
 
+
 ## UI
+Navigate to front end
+```bash
+ http://localhost:5111/
+```
+
 ![til](./nasaUI.gif)
